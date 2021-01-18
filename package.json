@@ -1,0 +1,29 @@
+{
+  "name": "vef2-2021-v1",
+  "version": "1.0.0",
+  "description": "[Kynning í fyrirlestri](https://youtu.be/pCEHnurbuCU).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass --source-map-embed ./styles/styles.scss ./public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaykaytherobot/vef2-2021-v1.git"
+  },
+  "author": "Jóhannes Kári Sólmundarson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaykaytherobot/vef2-2021-v1/issues"
+  },
+  "homepage": "https://github.com/jaykaytherobot/vef2-2021-v1#readme",
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "node-sass": "^5.0.0",
+    "stylelint": "^13.8.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
