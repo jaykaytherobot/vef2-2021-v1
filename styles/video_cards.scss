@@ -1,0 +1,95 @@
+@import 'config';
+
+.video {
+  &-card {
+    margin-bottom: $margin-bottom;
+  }
+
+  &-card:hover {
+    cursor: pointer;
+  }
+
+  &-container {
+    position: relative;
+  }
+
+  &-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    
+  }
+
+  &-playbutton {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 60px;
+  }
+
+  &-thumbnail {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+
+  &-thumbnail img {
+    object-fit: contain;
+    width: 100%;
+  }
+
+  &-timestamp {
+    background-color: #000a;
+    border-radius: 5px;
+    bottom: 0;
+    color: #fff;
+    margin: 10px;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+  }
+
+  &-name {
+    margin: 5px 0;
+  }
+
+  &-uploadtime {
+    margin: 0;
+  }
+
+  &-linebrake {
+    margin-bottom: $margin-bottom;
+    margin-top: 80px;
+    width: 80%;
+  }
+
+  &-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+  }
+
+  &-controls__button {
+    background-color: #e1e1e1;
+    border: 0;
+    width: 60px;
+  }
+
+  &-controls__img {
+    width: 100%;
+  }
+}
+
+.button {
+  &__active {
+    display: none;
+  }
+}
+
+video {
+  width: 100%;
+}
