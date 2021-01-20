@@ -1,2 +1,27 @@
 <%- include('header') -%>
+  <header>
+    <h1>Fræðslumyndbandaleigan</h1>
+  </header>
+  <main>
+    <div class="grid">
+      <% categories.forEach((category) => { %>
+        <section class="video row">
+          <h2 class="col"><%= category.title %></h2>
+          <% category.videos.forEach((i) => { %>
+            <div class="col col-4 col-12-sm video-card">
+              <div class="video-thumbnail">
+                <img class="video-image" src="<%= videos[i-1].poster%>">
+                <div class="video-timestamp"><%= videos[i-1].duration %></div>
+              </div>
+              <div class="video-info">
+                <h3 class="video-name"><%= videos[i-1].title %></h3>
+                <p class="video-uploadtime"><%= videos[i-1].created %></p>
+              </div>
+            </div>
+          <% }); %>
+          <hr class="video-linebrake">
+        </section>
+      <% }); %>
+    </div>
+  </main>
 <%- include('footer') -%>
