@@ -1,0 +1,33 @@
+<%- include('header', {title: title}) -%>
+<main>
+  <section class="video-view grid">
+    <h1><%= video.title %></h1>
+    <div class="video-container">
+      <video id="myVideo" controls>
+        <source src="<%= video.video %>" type="video/mp4"/>
+      </video>
+    </div>
+    <div class="video-controls">
+      <button class="video-controls__button">
+        <img id="rewind" class="video-controls__img" src="img/back.svg">
+      </button>
+      <button class="video-controls__button">
+        <img id="play" class="video-controls__img" src="img/play.svg">
+      </button>
+      <button class="video-controls__button">
+        <img id="mute" class="video-controls__img" src="img/mute.svg">
+      </button>
+      <button class="video-controls__button">
+        <img id="fullscreen" class="video-controls__img" src="img/fullscreen.svg">
+      </button>
+      <button class="video-controls__button">
+        <img id="forward" class="video-controls__img" src="img/next.svg">
+      </button>
+    </div>
+    <div class="video-description">
+      <p><%= video.description %></p>
+    </div>
+  </section>
+</main>
+<%- include('videoGroup', {group: {title: 'Tengd myndbönd', videos:video.related}, videos: videos}) -%>
+<%- include('footer') -%>

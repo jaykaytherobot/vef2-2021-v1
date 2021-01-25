@@ -3,6 +3,12 @@
 .video {
   &-card {
     margin-bottom: $margin-bottom;
+    text-decoration: none;
+    color: #000;
+  }
+
+  &-card:active{
+    color: #000;
   }
 
   &-card:hover {

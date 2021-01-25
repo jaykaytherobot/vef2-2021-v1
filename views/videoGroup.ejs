@@ -1,0 +1,16 @@
+<section class = "video row">
+  <h2 class="col"><%= group.title %></h2>
+  <% group.videos.forEach((i) => {%>
+    <a class="col col-4 col-12-sm video-card" href="/video?id=<%= videos[i-1].id %>">
+      <div class="video-thumbnail">
+        <img class="video-image" src="<%= videos[i-1].poster%>">
+        <div class="video-timestamp"><%= locals.util.formatTime(videos[i-1].duration) %></div>
+      </div>
+      <div class="video-info">
+        <h3 class="video-name"><%= videos[i-1].title %></h3>
+        <p class="video-uploadtime"><%= locals.util.formatUploadTime(videos[i-1].created) %></p>
+      </div>
+    </a>
+  <%})%>
+  <hr class="video-linebrake">
+</section>
