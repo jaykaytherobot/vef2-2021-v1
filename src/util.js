@@ -1,3 +1,7 @@
+/**
+ * Formattar tíman sem hefur liðið frá <milliseconds> á hentugan máta. 
+ * @param {Number} milliseconds 
+ */
 function formatUploadTime(milliseconds) {
   const time = Date.now() - milliseconds;
   const sek = Math.floor(time / 1000);
@@ -18,6 +22,10 @@ function formatUploadTime(milliseconds) {
   return `Fyrir ${year} árum síðan`;
 }
 
+/**
+ * Býr til streng á forminu mm:ss frá <seconds>
+ * @param {Number} seconds 
+ */
 function formatTime(seconds) {
   let min = Math.floor(seconds / 60);
   let sec = seconds % 60;

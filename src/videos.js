@@ -7,6 +7,11 @@ const express = require('express');
 
 const router = express.Router();
 
+/**
+ * Kallar á fall og grípur allar runtime villur sem koma upp og heldur áfram niður 
+ * middleware listann.
+ * @param {function} fn 
+ */
 function catchErrors(fn) {
   return (req, res, next) => fn(req, res, next).catch(next);
 }
@@ -19,17 +24,6 @@ async function readVideos(){
   const file = await readFileAsync('./videos.json');
   const json = JSON.parse(file);
   return json;
-}
-
-/**
- * 
- * @param {object} req 
- * @param {object} res 
- * @param {object} next 
- */
-function hello(req, res, next){
-  let title = 'videos';
-  res.render('videos', { title });
 }
 
 /**
@@ -48,6 +42,11 @@ async function list(req, res, next) {
   res.render('videos', {title, videos, categories});
 }
 
+/**
+ * Finnur myndband í lista sem hefur id id
+ * @param {Number} id Id fyrir myndband sem leitað er að
+ * @param {object} videos listi af video hlutum 
+ */
 async function findVideo(id, videos) {
   let videoFound;
   videos.forEach((video) => {
@@ -61,8 +60,17 @@ async function findVideo(id, videos) {
   return false;
 }
 
+/**
+ * Route handler sem að birtir síðu fyrir myndbönd
+ * @param {object} req Request hlutur
+ * @param {object} res Respond hlutur
+ * @param {object} next 
+ */
 async function showVideo(req, res, next) {
   const { slug } = req.params;
+  if (slug !== 'video') {
+    return next();
+  }
   const { id } = req.query;
   
   const json = await readVideos();

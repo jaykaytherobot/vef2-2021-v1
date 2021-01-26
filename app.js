@@ -15,8 +15,15 @@ app.locals.util = require('./src/util');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// notar Router frá videos.js
 app.use('/', videos);
 
+/**
+ * Middleware fyrir 404 not found villur
+ * @param {object} req 
+ * @param {object} res 
+ * @param {function} next 
+ */
 function notFoundHandler(req, res, next) {
   const title = 'Fannst ekki';
   const message = 'Ó nei, efnið finnst ekki';
@@ -24,6 +31,13 @@ function notFoundHandler(req, res, next) {
   res.status(404).render('error');
 }
 
+/**
+ * Middleware sem sér um villumeðhöndlun. 
+ * @param {object} err 
+ * @param {object} req 
+ * @param {object} res 
+ * @param {function} next 
+ */
 function errorHandler(err, req, res, next) {
   console.log(err);
   res.status(500).render('error');
@@ -34,7 +48,6 @@ app.use(errorHandler);
 
 const hostname = '127.0.0.1';
 const port = 3000;
-
 app.listen(port, hostname, () => {
   console.info(`Server running at http://${hostname}:${port}/`)
 });
