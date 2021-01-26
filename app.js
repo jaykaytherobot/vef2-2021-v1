@@ -27,8 +27,7 @@ app.use('/', videos);
 function notFoundHandler(req, res, next) { // eslint-disable-line
   const title = 'Fannst ekki';
   const message = 'Ó nei, efnið finnst ekki';
-  console.log('not found');
-  res.status(404).render('error');
+  res.status(404).render('error', { title, message });
 }
 
 /**
@@ -39,8 +38,9 @@ function notFoundHandler(req, res, next) { // eslint-disable-line
  * @param {function} next
  */
 function errorHandler(err, req, res, next) { // eslint-disable-line
-  console.log(err);
-  res.status(500).render('error');
+  const title = 'Villa kom upp';
+  const message = 'æi, það kom upp villa';
+  res.status(500).render('error', { title, message });
 }
 
 app.use(notFoundHandler);
@@ -49,5 +49,5 @@ app.use(errorHandler);
 const hostname = '127.0.0.1';
 const port = 3000;
 app.listen(port, hostname, () => {
-  console.info(`Server running at http://${hostname}:${port}/`);
+  console.info(`Server running at http://${hostname}:${port}/`); // eslint-disable-line
 });
