@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const videos = require('./src/videos');
 
-let app = express();
+const app = express();
 
 // leyfa express að bera static skjöl
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,11 +20,11 @@ app.use('/', videos);
 
 /**
  * Middleware fyrir 404 not found villur
- * @param {object} req 
- * @param {object} res 
- * @param {function} next 
+ * @param {object} req
+ * @param {object} res
+ * @param {function} next
  */
-function notFoundHandler(req, res, next) {
+function notFoundHandler(req, res, next) { // eslint-disable-line
   const title = 'Fannst ekki';
   const message = 'Ó nei, efnið finnst ekki';
   console.log('not found');
@@ -32,13 +32,13 @@ function notFoundHandler(req, res, next) {
 }
 
 /**
- * Middleware sem sér um villumeðhöndlun. 
- * @param {object} err 
- * @param {object} req 
- * @param {object} res 
- * @param {function} next 
+ * Middleware sem sér um villumeðhöndlun.
+ * @param {object} err
+ * @param {object} req
+ * @param {object} res
+ * @param {function} next
  */
-function errorHandler(err, req, res, next) {
+function errorHandler(err, req, res, next) { // eslint-disable-line
   console.log(err);
   res.status(500).render('error');
 }
@@ -49,5 +49,5 @@ app.use(errorHandler);
 const hostname = '127.0.0.1';
 const port = 3000;
 app.listen(port, hostname, () => {
-  console.info(`Server running at http://${hostname}:${port}/`)
+  console.info(`Server running at http://${hostname}:${port}/`);
 });

@@ -2,12 +2,12 @@
 
 .video {
   &-card {
+    color: #000;
     margin-bottom: $margin-bottom;
     text-decoration: none;
-    color: #000;
   }
 
-  &-card:active{
+  &-card:active {
     color: #000;
   }
 
@@ -20,19 +20,18 @@
   }
 
   &-overlay {
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
     bottom: 0;
+    left: 0;
+    position: absolute;
     right: 0;
     top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.2);
-    
   }
 
   &-playbutton {
+    left: calc(50% - 30px);
     position: absolute;
     top: calc(50% - 30px);
-    left: calc(50% - 30px);
     width: 60px;
   }
 
