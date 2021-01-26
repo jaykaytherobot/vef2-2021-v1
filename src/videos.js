@@ -81,7 +81,7 @@ async function showVideo(req, res, next) {
     return next();
   }
 
-  const title = 'Vídeoleigan';
+  const { title } = video;
 
   res.render('video', { title, video, videos });
   return '';

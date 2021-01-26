@@ -7,7 +7,8 @@
     "test:stylelint": "stylelint ./styles/*.scss --syntax scss",
     "test:eslint": "eslint app.js ./src/*.js --fix",
     "test": "concurrently npm:test:*",
-    "sass": "node-sass --source-map-embed ./styles/styles.scss ./public/styles.css"
+    "sass": "node-sass --source-map-embed ./styles/styles.scss ./public/styles.css",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
